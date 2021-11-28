@@ -1,13 +1,17 @@
-import React from "react";
-import "./App.css";
+import './App.css';
+import Sidebar from './components/Sidebar';
 import Login from "./pages/login";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+
 
 function App() {
   return (
-    <div className="App">
-      4Headsa
-      <Login />
-    </div>
+    <Router>
+      <Sidebar />
+      <Switch>
+          <Route exact path="/login" component={Login}/>
+      </Switch>
+      </Router> 
   );
 }
 
