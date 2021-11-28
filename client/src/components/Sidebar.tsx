@@ -5,6 +5,7 @@ import { IconContext } from 'react-icons';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { SidebarData } from './SidebarData';
 import Submenu from './Submenu';
+import Logo from '../assets/logo.png';
 
 const Nav = styled.div`
     display: flex;
@@ -41,11 +42,19 @@ const Sidebar: FC = () => {
 
     return (
         <IconContext.Provider value={{ color: '#fff' }}>
-            <Nav>
-                <NavIcon to="#" onClick={showSidebar}>
-                    <AiOutlineMenu />
-                </NavIcon>
-            </Nav>
+            <div className="row ">
+                <Nav>
+                    <div className="col">
+                        <NavIcon to="#" onClick={showSidebar}>
+                            <AiOutlineMenu />
+                        </NavIcon>
+                    </div>
+                    <div className="col d-flex justify-content-end">
+                        <img src={Logo} alt="logo" width="auto" height="70" />
+                    </div>
+                </Nav>
+            </div>
+        
             <SidebarNav sidebar={sidebar}>
                 <SidebarWrap>
                     <NavIcon to="#" onClick={showSidebar}>
@@ -57,6 +66,7 @@ const Sidebar: FC = () => {
                 </SidebarWrap>
             </SidebarNav>
         </IconContext.Provider>
+        
     );
 };
 
