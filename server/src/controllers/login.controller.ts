@@ -4,11 +4,13 @@ import {AUTH_CONFIG, TOKEN_EXPIRE_DURATION} from '../config/config';
 import User from "../models/user.model";
 
 const loginController = async (req:Request, res:Response, next:NextFunction) => {
+    console.log(req.body);
     await User.find({
             username: req.body.username
         })
         .exec()
         .then((users) => {      
+            console.log(users);
             if(users.length !== 1){
                 return res.status(404).send({
                     message: "User does not exist!",

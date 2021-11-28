@@ -6,6 +6,7 @@ const cors = require('cors');
 import { Request, Response } from 'express';
 import mongoose, { ConnectOptions, Error, Mongoose, Number } from "mongoose";
 import User from './src/models/user.model';
+import loginRouter from './src/routes/login.route';
 
 
 const app=express();
@@ -40,6 +41,8 @@ const initial = async () => {
 
 app.use(bodyParser.json()); // content-type - application/json
 app.use(bodyParser.urlencoded({ extended: true })); // content-type - application/x-www-form-urlencoded
+
+app.use("/api", loginRouter);
 
 app.get("/api", (req:Request, res:Response) => {
     res.json({ message: "default page for the server"});
