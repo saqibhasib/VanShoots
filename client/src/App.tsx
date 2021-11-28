@@ -1,11 +1,16 @@
-import React from 'react';
 import './App.css';
+import Sidebar from './components/Sidebar';
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+
 
 function App() {
   return (
-    <div className="App">
-      4Heads
-    </div>
+    <Router>
+      <Sidebar />
+      <Switch>
+        
+      </Switch>
+    </Router> 
   );
 }
 
