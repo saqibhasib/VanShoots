@@ -1,5 +1,6 @@
 import './App.css';
 import Sidebar from './components/Sidebar';
+import Login from "./pages/login";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 
@@ -8,9 +9,9 @@ function App() {
     <Router>
       <Sidebar />
       <Switch>
-        
+          <Route exact path="/login" component={Login}/>
       </Switch>
-    </Router> 
+      </Router> 
   );
 }
 
