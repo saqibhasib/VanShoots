@@ -3,9 +3,11 @@ import "./login.css";
 import Axios from "axios";
 import { Col, Row, Container, Form, Button } from "react-bootstrap";
 import { constants } from "os";
+import { useHistory } from "react-router";
 import Logo from '../assets/logo2.png';
 
 function Login() {
+  const history = useHistory(); 
   const [emailReg, setEmailReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
 
@@ -20,19 +22,20 @@ function Login() {
         return response;
       })
       .catch((err) => {
-        console.log(err);
-        alert("Error in getting information");
+        // console.log(err);
+        // alert("Error in getting information");
         return err;
       });
     return response;
   };
 
   const sendInfo = () => {
+    history.push("/home");
     getInfo().then((response) => {
       console.log(response);
       localStorage.setItem("email", response.data.email);
       localStorage.setItem("accessToken", response.data.accessToken);
-    });
+    }).catch(err => {window.location.reload();});
   };
 
   return (
