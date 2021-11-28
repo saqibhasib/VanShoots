@@ -4,6 +4,7 @@ import Axios from "axios";
 import { Col, Row, Container, Form, Button } from "react-bootstrap";
 import { constants } from "os";
 import { useHistory } from "react-router";
+import Logo from '../assets/logo2.png';
 
 function Login() {
   const history = useHistory(); 
@@ -39,6 +40,9 @@ function Login() {
 
   return (
     <div className="login">
+      <div className="col d-flex justify-content-center mt-5">
+        <img src={Logo} alt="logo" width="auto" height="70" />
+      </div>
       <Container className="form-container">
         <Row>
           <Col>
